@@ -67,7 +67,7 @@ for url in urls:
 
 print(results)
 
-with open('results.csv', 'w', newline='', encoding="utf-8") as file:
+with open("results.csv", "w", newline="", encoding="utf-8") as file:
     writer = csv.writer(file)
     writer.writerow(["url", "domain", "path", "classification", "confidence", "status"])
     writer.writerows(results)

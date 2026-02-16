@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Purchase form</title>
+        <meta name="viewport" content="width=device-width, initial-scale = 1">
+        <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+        <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
+        <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
+</head>
+<body>
+    <div class="container grid-lg">
+        <h1 class="text-center">Introduce the purchasing data</h1>
+
+        <form method="POST">
+            <div class="form-group">
+                <label class="form-label" for="product_name">Product Name</label>
+                <input class="form-input" id="product_name" name="product_name" type="text" required>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="unit_price">Unit Price</label>
+                <input class="form-input" id="unit_price" name="unit_price" type="number" step="0.01" min="0" required>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="number_pieces">Number of Pieces</label>
+                <input class="form-input" id="number_pieces" name="number_pieces" type="number" min="1" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+</body>
+</html>

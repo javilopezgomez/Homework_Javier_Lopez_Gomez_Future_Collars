@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Accounting system and warehouse management</title>
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <meta name="viewport" content="width=device-width, initial-scale = 1">
+        <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+        <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
+        <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
+    </head>
+
+    <body>
+    <div class="container grid-lg">
+        <h1 class="text-center">Accounting system and warehouse management</h1>
+
+        <div class="columns">
+            <div class="column col-6">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title h4" style="text-align:center">Current Stock</div>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-responsive">
+                            <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Quantity</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for product, quantity in stock.items() %}
+                            <tr>
+                                <td>{{ product }}</td>
+                                <td>{{ quantity }}</td>
+                            </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column col-6">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title h4" style="text-align:center">Account Balance</div>
+                    </div>
+                    <div class="card-body" style="text-align:center">
+                        {{ balance }} €
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center" style="margin-top: 40px">
+            <a href="{{ url_for('purchase') }}" class="btn btn-primary">Purchase</a>
+            <a href="{{ url_for('sale') }}"  class="btn btn-primary">Sale</a>
+            <a href="{{ url_for('change_balance') }}" class="btn btn-warning">Change Balance</a>
+            <a href="{{ url_for('history') }}" class="btn btn-link">History</a>
+        </div>
+
+</div>
+</body>
+</html>

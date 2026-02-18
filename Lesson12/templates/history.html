@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Movements history</title>
+        <meta name="viewport" content="width=device-width, initial-scale = 1">
+        <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+        <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
+        <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
+</head>
+<body>
+    <div class="container grid-lg">
+        <h1 class="text-center">History</h1>
+
+        <br>
+
+        <form method="GET" action="{{ url_for('history') }}" class="form-inline" style="display: flex; gap: 10px; align-items: center;">
+            <label class="form-label" for="history_from">From:</label>
+            <input class="form-input" id="history_from" type="number" name="from" min="1">
+
+            <label class="form-label" for="history_to">To:</label>
+            <input class="form-input" id="history_to" type="number" name="to" min="1">
+
+
+            <button type="submit" class="btn btn-primary">Filter</button>
+        </form>
+
+        <br>
+        <br>
+
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Operation</th>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Transaction</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for row in history_data %}
+                <tr>
+                    <td>{{ loop.index }}</td>
+                    <td>{{ row[0] }}</td>
+                    <td>{{ row[1] }}</td>
+                    <td>{{ row[2] }}</td>
+                    <td>{{ row[3] }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>
